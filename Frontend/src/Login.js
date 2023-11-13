@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Validation from'./LoginValidation';
 import axios from "axios";
+import './Components/Login/login.css';
+import './Components/Login/util.css';
 
 function Login() {
     const [values,setValues]= useState({
@@ -34,24 +36,50 @@ function Login() {
     } 
 
   return (
-    <div className='d-flex justify-content-center align-items-center bg-primary vh-100 '>
-        <div className='bg-white p-3 rounded w-25'>
-                <h3>Login to Engp Database</h3>
-            <form action="" onSubmit={handleSubmit}>
-                <div className='mb-3'>
-                    <label htmlFor="email"><strong>Email</strong></label>
-                    <input type="email" placeholder="Enter Email" name='email' onChange={handleInput} className='form-control rounded-0'/> 
-                    {errors.email && <span className='text-danger'>{errors.email}</span>}
+    <div className='limiter'>
+        <div className='container-login100'>
+            <div className='wrap-login100'>
+            
+            <form className='login100-form validate-form p-l-55 p-r-55 p-t-178' action="" onSubmit={handleSubmit}>
+
+            <span className='login100-form-title'>
+						Login to eNGP Database
+					</span>
+
+                <div className='wrap-input100 validate-input m-b-16'>
+                    <input type="email" placeholder="Email" name='email' onChange={handleInput} className='input100'/> 
+                    {errors.email && <span className='focus-input100'>{errors.email}</span>}
                 </div>
-                <div className='mb-3'>
-                    <label htmlFor="password"><strong>Password</strong></label>
-                    <input type="password" placeholder="Enter Password" name ='password'onChange={handleInput} className='form-control rounded-0'/> 
-                    {errors.password && <span className='text-danger'>{errors.password}</span>}
+
+                <div className='wrap-input100 validate-input'>
+                    <input type="password" placeholder="Password" name ='password' onChange={handleInput} className='input100'/> 
+                    {errors.password && <span className='focus-input100'>{errors.password}</span>}
                 </div>
-                <button type='submit' className='btn btn-success w-100'> <strong>Login</strong> </button>
-                <p>If you don't have Account?</p>   
-                <Link to="./signup" className='btn btn-default border w-100 bg-light text-decoration-none'>Create Account</Link>
+
+                <div className='text-right p-t-13 p-b-23'>
+						<Link to="#" className="txt2">
+							 Forgot Password?
+						</Link>
+					</div>
+
+                <div className='container-login100-form-btn'>
+                <button type='submit' className='login100-form-btn'> 
+                        Login
+                </button>
+                </div>
+
+                <div className="flex-col-c p-t-170 p-b-40">
+						<span className="txt1 p-b-9">
+							Don’t have an account?
+						</span>
+
+						<Link to="./signup" className="txt3">
+							Sign up now
+						</Link>
+					</div>
+
             </form>
+            </div>
         </div>
     </div>
   )
